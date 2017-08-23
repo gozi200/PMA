@@ -62,16 +62,11 @@ void Enemy::Update() {
 			bullet[i]->Update();
 		}
 
-		++counter;
-		if(fire_rate == counter) {
-			for (int i = 0; i < BULLET_MAX; ++i) { // 弾のアップデート
-				if (!bullet[i]->Get_Exist()) {
-					bullet[i]->Shot(x, y, angle);
+		for (int i = 0; i < BULLET_MAX; ++i) { // 弾のアップデート
+			if (!bullet[i]->Get_Exist()) {
+				bullet[i]->Shot(x, y, angle);
 
-					counter = 0;
-
-					break;//
-				}
+				break;
 			}
 		}
 	}

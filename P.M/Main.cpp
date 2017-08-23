@@ -4,8 +4,6 @@
 #include"Actor_Manager.h"
 #include"Scene_Manager.h"
 
-//test
-
 /////キーの入力状態を更新する
 int UpdateKey(char* key) {
 	char tmpKey[KEY_NUMBER]; //現在のキーの入力状態を収納
@@ -16,15 +14,15 @@ int UpdateKey(char* key) {
 		if (tmpKey[i] != 0) { //i番目のキーが押されていたら加算
 			++key[i];
 		}
-		else { //押されていなければ0に
+		else { //押されていなければ0を代入
 			key[i] = 0;
 		}
 	}
 	return 0;
 }
 
-/////////ここがfalseならループを抜け、ゲーム終了
-bool Process(char key[256]) {
+//////////////////ここがfalseならループを抜け、ゲーム終了
+bool Process(char key[KEY_NUMBER]) {
 	if (ScreenFlip())return false; //裏画面と入れ替える
 	if (ProcessMessage())return false; //windowsからの生存確認を自動で行う
 	if (ClearDrawScreen())return false; //現在いる画面の裏画面を消去
@@ -32,7 +30,7 @@ bool Process(char key[256]) {
 	
 	return true;
 }
-////////
+/////////////////
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR,int) {//win32なのでWinMain
 	ChangeWindowMode(true);//windowmodeに
