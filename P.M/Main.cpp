@@ -4,6 +4,8 @@
 #include"Actor_Manager.h"
 #include"Scene_Manager.h"
 
+//test
+
 /////キーの入力状態を更新する
 int UpdateKey(char* key) {
 	char tmpKey[KEY_NUMBER]; //現在のキーの入力状態を収納
